@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            border: 2px solid #333;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        ol {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>1. Which lifecycle method is used to clear the DOM when a component is deleted from the DOM?</h2>
+    <p><strong>Answer:</strong> In class components, it's <code>componentWillUnmount()</code>. In functional components, it's achieved with <code>useEffect()</code>.</p>
+
+    <h2>2. What is the difference between state and props?</h2>
+    <p><strong>Answer:</strong></p>
+    <ul>
+        <li><strong>Props:</strong>
+            <ol>
+                <li>Data is passed from a parent component to a child component.</li>
+                <li>Data cannot be modified by the child component.</li>
+                <li>It is controlled by the parent component.</li>
+            </ol>
+        </li>
+        <li><strong>State:</strong>
+            <ol>
+                <li>Data of the component can be updated locally.</li>
+                <li>Data can be updated using the <code>setState()</code> method.</li>
+                <li>It is controlled by the component in which it is declared.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <h2>3. Explain about Router.</h2>
+    <p><strong>Answer:</strong>
+        <ol>
+            <li>Router is a third-party library that can be installed using <code>npm install react-router-dom</code>.</li>
+            <li>It is used in a single-page application with multiple views.</li>
+            <li>It is used to navigate from one page to another.</li>
+            <li>It maps specific components to different URLs, enabling the rendering of distinct UIs for each route.</li>
+        </ol>
+    </p>
+
+    <h2>4. Explain Context Flow.</h2>
+    <p><strong>Answer:</strong></p>
+    <ol>
+		<strong>Note : </strong> install router to use Router, npm install react-router-dom.
+        <li>First we have to create a folder , inside src->component->sample->context->context.js, reducer.js</li>
+			<ul>
+				<li>Another folder inside sample->Router ->Home.js,Service.js.</li>
+				<li>In Home.js and Service.js , create a functional component.</li>
+				<li>Outside src , create routing.js and link Home.js & Service.js in routing.js</li>
+			</ul>
+        <li>Create a context using <code>createContext()</code>.</li>
+		<li>Declare initial state and an update function in a separate reducer file.</li>
+		   <code>
+		    <p>  Eg : export const initialstate =  //initial state </p>
+				<p>{name : "Jaishree"} <p>
+					
+				
+			//update function
+
+				 <p>export const Reducer = (state,action)=>{</p>
+       
+			<p>  	//update function if give 2, =>state and action}</p>
+				
+			</code>
+        
+        <li>In a component, declare a state using <code>useReducer()</code> hook, and import context, initial state, and the update function.</li>
+		<code>const [state, dispatch] = useReducer(Reducer,initialstate) </code>
+		
+        <li>we have to import context from context.js and initial state and update function from Reducer.js</li>
+		<code> <p>import { globalstate } from './Component/globalstate/context/Context' // context</p>
+				<p>import { initialstate,Reducer } from './Component/globalstate/context/Reducer' // initial state and update function from Reducer.js</p>
+		</code>
+        <li>Wrap the component with the <code>Provider</code> from the context, providing the state and dispatch.</li>
+		<li>Read the state using <code>useContext()</code> hook in the components.</li>
+    </ol>
+
+</body>
+</html>
